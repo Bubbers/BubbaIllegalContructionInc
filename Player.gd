@@ -11,7 +11,10 @@ var velocity = Vector3()
 var rotation_helper
 var camera
 var interact_ray
-var previous_interact_object
+var previous_interact_object = null
+
+var item_held_old_parent = null
+var item_held = null
 
 var cam_pitch = 0.0;
 var cam_yaw = 0.0;
@@ -70,7 +73,7 @@ func handle_object_interaction():
     
     _highlight_selected_object(is_colliding, building_floor)
         
-    if is_colliding and Input.is_action_just_pressed("interact"):
+    if is_colliding and Input.is_action_just_pressed("interact") and item_held == null:
         var floor_parent = building_floor.get_parent()
         floor_parent.remove_child(building_floor)
         var building_mesh = building_floor.retrieve_floor_mesh()
@@ -79,6 +82,23 @@ func handle_object_interaction():
         building_mesh.set_scale(building_mesh.get_scale()*0.1)
         
         building_mesh.set_translation(Vector3(2, 1, -2))
+        item_held = building_mesh
+        item_held_old_parent = building_floor
+    elif Input.is_action_just_pressed("interact") and item_held != null:
+        item_held.get_parent().remove_child(item_held)
+        item_held_old_parent.add_child(item_held)
+        get_parent().add_child(item_held_old_parent)
+        item_held.set_scale(item_held.get_scale() * 10)
+        item_held.set_translation(Vector3(0, 2, 0))
+
+        var placementOffset = Vector3(0.0, 0.0, -1.0).rotated(Vector3(0.0, 1.0, 0.0), cam_yaw) * 10
+
+        item_held_old_parent.set_translation(get_translation() + placementOffset)
+        item_held_old_parent.rotation = rotation_helper.rotation
+
+        item_held = null
+        item_held_old_parent = null
+
 
 func _highlight_selected_object(is_colliding, building_floor):
     if is_colliding:
