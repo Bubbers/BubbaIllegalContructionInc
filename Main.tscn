@@ -13,7 +13,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
 flags_transparent = false
@@ -65,11 +65,11 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Metallic" ]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -87,7 +87,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
-material/0 = SubResource( 3 )
+material/0 = SubResource( 2 )
 _sections_unfolded = [ "Geometry", "LOD", "Pause", "Transform", "Visibility", "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance" index="0"]
@@ -104,7 +104,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = false
 _sections_unfolded = [ "Transform", "Visibility" ]
 
