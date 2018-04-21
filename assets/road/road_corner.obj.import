@@ -9,10 +9,10 @@ path="res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh"
 files=[ "res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh" ]
 
 source_file="res://assets/road/road_corner.obj"
-source_md5="22666f9b6af4c09f73c686bfbfd56963"
+source_md5="ba08b7f2c6d3d0fca00fecd2979e180a"
 
 dest_files=[ "res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh", "res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh" ]
-dest_md5="fae008fe8422a3c31e82dc06e435ac18"
+dest_md5="3f674f8a76745f7cd69c33a2a4e31961"
 
 [params]
 
