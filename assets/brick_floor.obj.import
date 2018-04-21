@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/brick_floor.obj-5d9394e7c2c220272f4e527c4ef325f8.mesh"
+
+[deps]
+
+files=[ "res://.import/brick_floor.obj-5d9394e7c2c220272f4e527c4ef325f8.mesh" ]
+
+source_file="res://assets/brick_floor.obj"
+source_md5="8d8805447ac22d8682696bb8916c7a16"
+
+dest_files=[ "res://.import/brick_floor.obj-5d9394e7c2c220272f4e527c4ef325f8.mesh", "res://.import/brick_floor.obj-5d9394e7c2c220272f4e527c4ef325f8.mesh" ]
+dest_md5="8ce72764492ca80fcd413135e0c5eb97"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
