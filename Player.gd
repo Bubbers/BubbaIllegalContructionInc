@@ -2,7 +2,7 @@ extends KinematicBody
 
 export (float) var gravity = 10
 export (float) var jump_force = 5
-export (float) var moving_speed = 5
+export (float) var moving_speed = 12
 
 const MOUSE_SENSITIVTY = 0.005
 
@@ -40,8 +40,8 @@ func _process(delta):
 
     if !is_on_floor():
         velocity.y -= gravity*delta
-    elif Input.is_action_just_pressed("jump"):
-        velocity.y = jump_force
+    #elif Input.is_action_just_pressed("jump"):
+     #   velocity.y = jump_force
     else:
         velocity.y = 0
 

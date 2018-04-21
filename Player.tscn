@@ -30,7 +30,7 @@ collision/safe_margin = 0.001
 script = ExtResource( 1 )
 gravity = 10
 jump_force = 5
-moving_speed = 5
+moving_speed = 12
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
