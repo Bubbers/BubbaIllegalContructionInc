@@ -123,6 +123,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2304, 1.71915, 9.10777 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
 
+[node name="RigidBody2" parent="." index="5" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 11.1394, -11.818 )
+
+[node name="RigidBody3" parent="." index="6" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 20.2568, -11.818 )
+
+[node name="RigidBody4" parent="." index="7" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 16.0758, -11.818 )
+
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
 
 

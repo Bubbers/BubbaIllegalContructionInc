@@ -29,6 +29,7 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
 gravity = 10
 jump_force = 5
 moving_speed = 12
@@ -80,7 +81,7 @@ far = 100.0
 transform = Transform( 0.999987, -0.0011687, 0.00498836, 0.000878296, 0.998327, 0.0578244, -0.0050475, -0.0578192, 0.998314, 0, -0.0219626, -0.00511622 )
 enabled = true
 exclude_parent = true
-cast_to = Vector3( 0, 0, -20 )
+cast_to = Vector3( 0, 0, -15 )
 collision_mask = 2
 
 

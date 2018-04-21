@@ -11,6 +11,7 @@ var velocity = Vector3()
 var rotation_helper
 var camera
 var interact_ray
+var previous_interact_object
 
 var cam_pitch = 0.0;
 var cam_yaw = 0.0;
@@ -64,8 +65,33 @@ func handle_vertical_motion(delta):
         velocity.y = 0
         
 func handle_object_interaction():
-    if interact_ray.is_colliding():
-        print("Colliding")
+    var is_colliding = interact_ray.is_colliding()
+    var building_floor = interact_ray.get_collider()
+    
+    _highlight_selected_object(is_colliding, building_floor)
+        
+    if is_colliding and Input.is_action_just_pressed("interact"):
+        var floor_parent = building_floor.get_parent()
+        floor_parent.remove_child(building_floor)
+        var building_mesh = building_floor.retrieve_floor_mesh()
+        building_floor.remove_child(building_mesh)
+        rotation_helper.add_child(building_mesh)
+        building_mesh.set_scale(building_mesh.get_scale()*0.1)
+        
+        building_mesh.set_translation(Vector3(2, 1, -2))
+
+func _highlight_selected_object(is_colliding, building_floor):
+    if is_colliding:
+        if building_floor != previous_interact_object: 
+            building_floor.highlight(true)
+            
+            if previous_interact_object != null:
+                previous_interact_object.highlight(false)
+            
+            previous_interact_object = building_floor
+    elif previous_interact_object != null:
+        previous_interact_object.highlight(false)
+        previous_interact_object = null
 
 func _input(event):
     if event is InputEventMouseMotion:
@@ -74,7 +100,7 @@ func _input(event):
 
         cam_yaw -= relative.x * MOUSE_SENSITIVITY
         cam_pitch += relative.y * MOUSE_SENSITIVITY
-        cam_pitch = clamp(cam_pitch, 0.0, PI / 2.1)
+        cam_pitch = clamp(cam_pitch, - PI/8, PI / 2.1)
 
         var head_pos = Vector3(0, 3.6, 0) + get_global_transform().origin
         var cam_pos = head_pos

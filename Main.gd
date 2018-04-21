@@ -17,3 +17,4 @@ func _ready():
 
 func _on_WinCollision_win():
     $WinHUD/VisibilityEnabler2D.show()
+ 
