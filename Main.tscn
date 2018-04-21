@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://WinCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WinHUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -86,7 +87,7 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = SubResource( 3 )
-_sections_unfolded = [ "material" ]
+_sections_unfolded = [ "Geometry", "LOD", "Pause", "Transform", "Visibility", "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance" index="0"]
 
@@ -98,20 +99,24 @@ friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody" index="0"]
 
 shape = SubResource( 2 )
 disabled = false
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform", "Visibility", "collision" ]
 
 [node name="WinCollision" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2304, 1.71915, 9.10777 )
+
+[node name="WinHUD" parent="." index="3" instance=ExtResource( 4 )]
 
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
 

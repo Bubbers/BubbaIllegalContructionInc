@@ -16,4 +16,4 @@ func _ready():
 
 
 func _on_WinCollision_win():
-    print("You win")
+    $WinHUD/VisibilityEnabler2D.show()

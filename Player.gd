@@ -4,7 +4,7 @@ export (float) var gravity = 10
 export (float) var jump_force = 5
 export (float) var moving_speed = 12
 
-const MOUSE_SENSITIVTY = 0.005
+const MOUSE_SENSITIVITY = 0.005
 
 var velocity = Vector3()
 
@@ -26,7 +26,7 @@ func _ready():
 func _process(delta):
 
     var direction = Vector3()
-    var camera_transform = camera.get_global_transform()
+    var camera_transform = rotation_helper.global_transform
 
     if Input.is_action_pressed("forward"):
         direction -= camera_transform.basis.z.normalized()
@@ -40,8 +40,8 @@ func _process(delta):
 
     if !is_on_floor():
         velocity.y -= gravity*delta
-    #elif Input.is_action_just_pressed("jump"):
-     #   velocity.y = jump_force
+    elif Input.is_action_just_pressed("jump"):
+        velocity.y = jump_force
     else:
         velocity.y = 0
 
@@ -57,11 +57,11 @@ func _process(delta):
 func _input(event):
     if event is InputEventMouseMotion:
         var relative = event.relative
-        rotation_helper.rotate_y(-relative.x * MOUSE_SENSITIVTY)
+        rotation_helper.rotate_y(-relative.x * MOUSE_SENSITIVITY)
 
-        cam_yaw -= relative.x * MOUSE_SENSITIVTY
-        cam_pitch += relative.y * MOUSE_SENSITIVTY
-        cam_pitch = clamp(cam_pitch, 0.0, PI / 2)
+        cam_yaw -= relative.x * MOUSE_SENSITIVITY
+        cam_pitch += relative.y * MOUSE_SENSITIVITY
+        cam_pitch = clamp(cam_pitch, 0.0, PI / 2.1)
 
         var head_pos = Vector3(0, 3.6, 0) + get_global_transform().origin
         var cam_pos = head_pos
