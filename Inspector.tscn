@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Inspector.gd" type="Script" id=1]
 
-[sub_resource type="SphereShape" id=2]
+[sub_resource type="SphereShape" id=1]
 
 radius = 2.34663
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="CapsuleMesh" id=2]
 
 radius = 1.0
 mid_height = 1.0
@@ -18,7 +18,7 @@ rings = 8
 radius = 0.306935
 height = 1.08276
 
-[node name="Inspector" type="KinematicBody" index="0"]
+[node name="Inspector" type="KinematicBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -33,6 +33,7 @@ axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+gravity = 10
 
 [node name="InspectionArea" type="Area" parent="." index="0"]
 
@@ -62,7 +63,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="InspectionAreaCollider" type="CollisionShape" parent="InspectionArea" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998019, 3.55271e-15 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 
 [node name="InspectorMesh" type="MeshInstance" parent="." index="1"]
@@ -77,7 +78,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
@@ -88,8 +89,6 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.69
 shape = SubResource( 3 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
-
-[connection signal="area_entered" from="InspectionArea" to="." method="_on_InspectionArea_area_entered"]
 
 [connection signal="body_entered" from="InspectionArea" to="." method="_on_InspectionArea_body_entered"]
 
