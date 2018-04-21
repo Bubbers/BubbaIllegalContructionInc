@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh"
+
+[deps]
+
+files=[ "res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh" ]
+
+source_file="res://assets/road/road_straight.obj"
+source_md5="64020dc61abc82accd14f60077e8dc1c"
+
+dest_files=[ "res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh", "res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh" ]
+dest_md5="915dc25aa6e48b36c79bff43c30d37ab"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
