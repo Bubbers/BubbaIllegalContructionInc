@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/point.ogg-6b44309cfd193795f694ca874d472234.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/point.ogg"
+source_md5="6f48c4ecb67a708ae083b6069e896ca5"
+
+dest_files=[ "res://.import/point.ogg-6b44309cfd193795f694ca874d472234.oggstr" ]
+dest_md5="3ca6256eb3e4d207405d66a9dd12899b"
+
+[params]
+
+loop=false
+loop_offset=0

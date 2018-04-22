@@ -13,7 +13,7 @@
 
 extents = Vector3( 77, 2.5, 0.25 )
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 

@@ -12,6 +12,7 @@ export (Vector2) var target_plot = Vector2(2, 2)
 signal points_changed
 
 var points
+var point_sound
 
 func _ready():
     var width = 4
@@ -22,12 +23,14 @@ func _ready():
         for z in range(10):
             _neighborhood(Vector3(x * block_width * width, 0, z * block_height * height), width, height, Vector2(x, z))
     points = 0
+    point_sound = $PointsSound
 
 func _on_Area_body_entered(body):
     points += 1
     emit_signal("points_changed", points)
     print("points are ", points)
     global.set_points(points)
+    point_sound.play()
 
 
 func _on_Area_body_exited(body):
