@@ -66,8 +66,11 @@ display = true
 
 [node name="ScoreHud" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="StaticBody" type="StaticBody" parent="." index="6"]
+[node name="InvisibleWalls" type="Spatial" parent="." index="6"]
 
+[node name="StaticBody" type="StaticBody" parent="InvisibleWalls" index="0"]
+
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2.5, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -79,14 +82,15 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/StaticBody" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2" type="StaticBody" parent="." index="7"]
+[node name="StaticBody2" type="StaticBody" parent="InvisibleWalls" index="1"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2.5, 151 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -98,14 +102,15 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody2" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/StaticBody2" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody3" type="StaticBody" parent="." index="8"]
+[node name="StaticBody3" type="StaticBody" parent="InvisibleWalls" index="2"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2.5, 75 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -117,14 +122,15 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody3" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/StaticBody3" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody4" type="StaticBody" parent="." index="9"]
+[node name="StaticBody4" type="StaticBody" parent="InvisibleWalls" index="3"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 2.5, 75 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -136,7 +142,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody4" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/StaticBody4" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07269e-06, 0, 0 )
 shape = SubResource( 1 )
