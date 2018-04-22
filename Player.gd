@@ -25,6 +25,7 @@ func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #This might not work in a browser
     camera = $RotationHelper/FPVCamera
     interact_ray = $RotationHelper/FPVCamera/InteractRay
+    add_to_group("player", true)
 
 func _process(delta):
 
@@ -129,4 +130,6 @@ func _input(event):
         cam_pos.z += cam_currentradius * cos(cam_yaw) * cos(cam_pitch)
 
         camera.look_at_from_position(cam_pos, head_pos, Vector3(0, 1, 0))
+        
+        
 

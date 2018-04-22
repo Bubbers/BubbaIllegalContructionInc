@@ -6,13 +6,20 @@ export (float) var gravity = 10
 
 var next_move_change = 0
 var move_vector = Vector3(0.0, 0.0, 0.0)
+var current_rotation_angle = 0
+
+var rotation_helper
+var sight_ray_caster
 
 const MOVE_SPEED = 5
 
 const DEFAULT_TIME_BETWEEN_MOVES = 5000
 
+var seen_player_object = null
+
 func _ready():
-    pass
+    rotation_helper = $RotationHelper
+    sight_ray_caster = $RotationHelper/SightRay
 
 func _process(delta):
     var current_time = OS.get_ticks_msec()
@@ -33,7 +40,33 @@ func _process(delta):
             move_vector += Vector3(0.0, 0.0, 1.0)
         if randi() % 2 == 0:
             move_vector += Vector3(0.0, 0.0, -1.0)
+
+        var angle = acos(Vector3(1.0, 0.0, 0.0).dot(move_vector.normalized()))
+
+        rotation_helper.rotate_y(current_rotation_angle - angle)
+        current_rotation_angle = angle
+
     move_and_slide(move_vector * MOVE_SPEED, Vector3(0.0, 1.0, 0.0))
 
+
+    if sight_ray_caster.is_colliding():
+        var seen_object = sight_ray_caster.get_collider()
+        if seen_object.is_in_group("player"):
+            emit_signal("detectedPlayer")
+
+    point_raycaster_to_player()
+
+func point_raycaster_to_player():
+    if seen_player_object != null:
+        var player_position = seen_player_object.rotation_helper.to_global(seen_player_object.rotation_helper.get_translation())
+        sight_ray_caster.set_cast_to(rotation_helper.to_local(player_position))
+
 func _on_InspectionArea_body_entered(body):
-    emit_signal("detectedPlayer")
+    if body.is_in_group("player"):
+        seen_player_object = body
+
+
+func _on_InspectionArea_body_exited(body):
+    if body.is_in_group("player"):
+        seen_player_object = null
+        sight_ray_caster.set_cast_to(Vector3(10.0, 0.0, 0.0))

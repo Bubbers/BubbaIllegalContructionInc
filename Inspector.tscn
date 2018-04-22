@@ -2,9 +2,10 @@
 
 [ext_resource path="res://Inspector.gd" type="Script" id=1]
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="CapsuleShape" id=3]
 
-radius = 2.34663
+radius = 0.306935
+height = 1.08276
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -13,10 +14,9 @@ mid_height = 1.0
 radial_segments = 64
 rings = 8
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="SphereShape" id=1]
 
-radius = 0.306935
-height = 1.08276
+radius = 2.34663
 
 [node name="Inspector" type="KinematicBody"]
 
@@ -32,12 +32,49 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 gravity = 10
 
-[node name="InspectionArea" type="Area" parent="." index="0"]
+[node name="InspectorMeshCollider" type="CollisionShape" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12345e-14, 0 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.692466, 0 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="RotationHelper" type="Spatial" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="InspectorMesh" type="MeshInstance" parent="RotationHelper" index="0"]
+
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="SightRay" type="RayCast" parent="RotationHelper" index="1"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 10, 0, 0 )
+collision_mask = 1
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="InspectionArea" type="Area" parent="RotationHelper" index="2"]
+
+transform = Transform( 1, 5.30863e-14, -8.64886e-21, -8.64886e-21, 1.62921e-07, 1, 5.30863e-14, -1, 1.62921e-07, -1.12726e-27, -3.45954e-21, 2.12345e-14 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -58,38 +95,17 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="InspectionAreaCollider" type="CollisionShape" parent="InspectionArea" index="0"]
+[node name="InspectionAreaCollider" type="CollisionShape" parent="RotationHelper/InspectionArea" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998019, 3.55271e-15 )
+transform = Transform( 2, -2.58626e-14, 3.28656e-20, 5.17251e-14, 1, -6.19098e-07, -1.68542e-20, 3.09549e-07, 2, 0, 0, 0 )
 shape = SubResource( 1 )
 disabled = false
-
-[node name="InspectorMesh" type="MeshInstance" parent="." index="1"]
-
-transform = Transform( 0.25, 0, 0, 0, -4.07302e-08, -0.5, 0, 0.25, -8.14603e-08, 0, 0.8, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="InspectorMeshCollider" type="CollisionShape" parent="." index="2"]
+[connection signal="body_entered" from="RotationHelper/InspectionArea" to="." method="_on_InspectionArea_body_entered"]
 
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.692466, 0 )
-shape = SubResource( 3 )
-disabled = false
-_sections_unfolded = [ "Transform" ]
-
-[connection signal="body_entered" from="InspectionArea" to="." method="_on_InspectionArea_body_entered"]
+[connection signal="body_exited" from="RotationHelper/InspectionArea" to="." method="_on_InspectionArea_body_exited"]
 
 
