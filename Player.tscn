@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/bubba/bubba.png" type="Texture" id=2]
 [ext_resource path="res://assets/bubba/bubba.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/sound/take_sound.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -131,5 +132,16 @@ enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, 0, -15 )
 collision_mask = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Material", "Visibility" ]
 
 

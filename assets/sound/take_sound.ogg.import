@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/take_sound.ogg-8535a013c964a529aa09e560f3e74a31.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/take_sound.ogg"
+source_md5="1995f770aeb607734ee5590c2a3fbb09"
+
+dest_files=[ "res://.import/take_sound.ogg-8535a013c964a529aa09e560f3e74a31.oggstr" ]
+dest_md5="9c9fcf89c40ffd04a91c05d4bead7b1e"
+
+[params]
+
+loop=false
+loop_offset=0

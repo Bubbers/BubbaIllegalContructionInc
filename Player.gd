@@ -85,6 +85,8 @@ func handle_object_interaction():
         building_mesh.set_translation(Vector3(2, 1, -2))
         item_held = building_mesh
         item_held_old_parent = building_floor
+        $AudioStreamPlayer2D.play()
+
     elif Input.is_action_just_pressed("interact") and item_held != null:
         item_held.get_parent().remove_child(item_held)
         item_held_old_parent.add_child(item_held)
