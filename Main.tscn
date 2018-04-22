@@ -8,7 +8,7 @@
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ScoreHud.tscn" type="PackedScene" id=7]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 77, 2.5, 0.25 )
 
@@ -81,7 +81,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
@@ -100,7 +100,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
@@ -119,7 +119,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
@@ -139,7 +139,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody4" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07269e-06, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 
 [connection signal="points_changed" from="Ground" to="ScoreHud" method="_on_score_changed"]

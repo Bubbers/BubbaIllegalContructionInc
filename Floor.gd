@@ -14,3 +14,7 @@ func highlight(should_highlight):
     
 func retrieve_floor_mesh():
     return mesh
+
+
+func _on_BrickFloor_body_entered(body):
+    $SoundPlayer.play()

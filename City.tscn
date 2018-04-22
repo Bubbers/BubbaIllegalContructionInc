@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ Color( 0.148438, 1, 0, 0.629843 ), Color( 0.148438, 1, 0, 0.983451 ), Color( 0.148438, 1, 0, 0.627451 ) ]
 }
 
-[node name="Spatial" type="Spatial" index="0"]
+[node name="Spatial" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
