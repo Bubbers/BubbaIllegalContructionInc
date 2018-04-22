@@ -36,7 +36,7 @@ func _process(time):
         var err = loader.poll()
 
         if err == ERR_FILE_EOF: # load finished
-            loaded_resource = loader.get_resource().instance()
+            loaded_resource = loader.get_resource()
             loader = null
             $PlayButton.disabled = false
             break
@@ -54,8 +54,8 @@ func update_progress():
 
 func set_new_scene(scene_resource):    
     current_scene.queue_free() # get rid of the old scene
-    current_scene = scene_resource #.instance()
-    get_node("/root").add_child(current_scene)
+    current_scene = scene_resource
+    get_tree().change_scene_to(scene_resource)
 
 func _on_PlayButton_button_up():
     if loaded_resource == null:
