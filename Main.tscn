@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=10]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -76,10 +76,6 @@ _sections_unfolded = [ "Shadow" ]
 
 display = true
 
-[node name="ScoreHud" parent="." index="7" instance=ExtResource( 9 )]
-
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
-
-[connection signal="points_changed" from="Ground" to="ScoreHud" method="_on_score_changed"]
 
 
