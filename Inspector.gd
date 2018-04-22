@@ -16,6 +16,8 @@ const DEFAULT_TIME_BETWEEN_MOVES = 5000
 
 var seen_player_object = null
 
+var time_until_next_audio = 0
+
 func _ready():
     rotation_helper = $RotationHelper
     sight_ray_caster = $RotationHelper/SightRay
@@ -55,6 +57,23 @@ func _process(delta):
             emit_signal("detectedPlayer")
 
     point_raycaster_to_player()
+    
+    play_sound(delta)
+    
+func play_sound(delta):
+    var current_time = OS.get_unix_time()
+    time_until_next_audio -= delta * 1000
+    if time_until_next_audio <= 0: 
+        
+        var which_sound = randi() % 3
+        
+        if which_sound == 0:
+            $ThroatClearing.play()
+        elif which_sound == 1:
+            $Whisle.play()
+        else:
+            $Hmm.play()
+        time_until_next_audio = 5000 + (randi() % 5000) 
 
 func point_raycaster_to_player():
     if seen_player_object != null:

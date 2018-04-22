@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Inspector.gd" type="Script" id=1]
 [ext_resource path="res://assets/inspector/monster.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/inspector/monster.png" type="Texture" id=3]
+[ext_resource path="res://assets/sound/throat_clearing.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/whislte.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sound/hmm.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -100,7 +103,7 @@ _sections_unfolded = [ "Transform" ]
 enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, 10, -1 )
-collision_mask = 1024
+collision_mask = 1048575
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="InspectionArea" type="Area" parent="RotationHelper" index="1"]
@@ -151,6 +154,63 @@ mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 _sections_unfolded = [ "Transform", "material" ]
+
+[node name="ThroatClearing" type="AudioStreamPlayer3D" parent="." index="2"]
+
+stream = ExtResource( 4 )
+attenuation_model = 0
+unit_db = 8.0
+unit_size = 1.0
+max_db = 6.0
+autoplay = false
+max_distance = 30.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+
+[node name="Whisle" type="AudioStreamPlayer3D" parent="." index="3"]
+
+stream = ExtResource( 5 )
+attenuation_model = 0
+unit_db = 8.0
+unit_size = 1.0
+max_db = 6.0
+autoplay = false
+max_distance = 30.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+
+[node name="Hmm" type="AudioStreamPlayer3D" parent="." index="4"]
+
+stream = ExtResource( 6 )
+attenuation_model = 0
+unit_db = 8.0
+unit_size = 1.0
+max_db = 6.0
+autoplay = false
+max_distance = 30.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
 
 [connection signal="body_entered" from="RotationHelper/InspectionArea" to="." method="_on_InspectionArea_body_entered"]
 
