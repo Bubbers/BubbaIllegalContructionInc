@@ -7,6 +7,7 @@ export (PackedScene) var brick_floor
 export (PackedScene) var wood_floor
 export (int) var min_building_stack_size = 2
 export (int) var max_building_stack_size = 8
+export (Vector2) var target_plot = Vector2(2, 2)
 
 func _ready():
     var width = 4
@@ -15,7 +16,7 @@ func _ready():
     var block_height = 3 * (1.0 + 1.0/height)
     for x in range(10):
         for z in range(10):
-            _neighborhood(Vector3(x * block_width * width, 0, z * block_height * height), width, height)
+            _neighborhood(Vector3(x * block_width * width, 0, z * block_height * height), width, height, Vector2(x, z))
 
 
 #
@@ -24,7 +25,7 @@ func _ready():
 #   s6       s3
 #   c3 s5 s4 c2
 #
-func _neighborhood(var origin, var width, var height):
+func _neighborhood(var origin, var width, var height, var plot_spot):
     var corners = [Vector3(), Vector3(), Vector3(), Vector3()]
     var mid_of_neighborhood = origin + Vector3(3 * (width / 2.0) , 0, 3 * (height / 2.0))
     
@@ -36,7 +37,11 @@ func _neighborhood(var origin, var width, var height):
     _place_straight(corners[1], height - 1, 1 * (PI /-2))
     _place_straight(corners[2], height - 1, 3 * (PI /-2))
     
-    _place_building(origin)
+    if plot_spot == target_plot:
+        $TargetPositionHighlight.set_translation(origin + Vector3(6, 0.25, 6))
+        print("wut")
+    else:
+        _place_building(origin)
     
     var newPlot = Plot.instance()
     newPlot.set_translation(mid_of_neighborhood)

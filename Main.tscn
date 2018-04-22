@@ -10,7 +10,7 @@
 [ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=9]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -33,6 +33,7 @@ InspectorTemplate = ExtResource( 6 )
 [node name="Ground" parent="." index="4" instance=ExtResource( 7 )]
 
 transform = Transform( 1, -0.000282597, -0.000655334, 0.000283307, 0.999999, 0.00105877, 0.000655028, -0.00105896, 0.999999, 0, 0, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="PointsArea" parent="." index="5" instance=ExtResource( 8 )]
 

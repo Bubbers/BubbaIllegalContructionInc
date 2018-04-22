@@ -12,7 +12,7 @@ source_file="res://assets/road/road_straight.obj"
 source_md5="c3f6ee8b587a8cd9403cf8b23cff0540"
 
 dest_files=[ "res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh", "res://.import/road_straight.obj-14cd700501933655668970fba2196dac.mesh" ]
-dest_md5="6e3b76f73e6cba2b5a0c960fddb5cf55"
+dest_md5="70c12d0dbae66e6167065217ef6120a6"
 
 [params]
 
