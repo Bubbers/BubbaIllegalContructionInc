@@ -62,7 +62,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=3]
 
 code = "shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
@@ -111,10 +111,10 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=4]
 
 render_priority = 0
-shader = SubResource( 5 )
+shader = SubResource( 3 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0
@@ -131,7 +131,7 @@ shader_param/uv2_offset = Vector3( 0, 0, 0 )
 shader_param/is_emissive = null
 shader_param/texture_albedo = ExtResource( 2 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 
 extents = Vector3( 3.47519, 1.62909, 2.53691 )
 
@@ -139,7 +139,7 @@ extents = Vector3( 3.47519, 1.62909, 2.53691 )
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 3
+collision_layer = 11
 collision_mask = 1
 mode = 0
 mass = 1.0
@@ -179,13 +179,13 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = SubResource( 6 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "material" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80081, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 disabled = false
 
 
