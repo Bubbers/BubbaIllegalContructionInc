@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://City.gd" type="Script" id=1]
 [ext_resource path="res://RoadCorner.tscn" type="PackedScene" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://Plot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BrickFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WoodFloor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=7]
 
 [sub_resource type="QuadMesh" id=1]
 
-size = Vector2( 1, 1 )
+size = Vector2( 10, 10 )
 
 [sub_resource type="SpatialMaterial" id=2]
 
@@ -86,9 +87,10 @@ tracks/0/keys = {
 "values": [ Color( 0.148438, 1, 0, 0.629843 ), Color( 0.148438, 1, 0, 0.983451 ), Color( 0.148438, 1, 0, 0.627451 ) ]
 }
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 Corner = ExtResource( 2 )
 Straight = ExtResource( 3 )
 Plot = ExtResource( 4 )
@@ -100,7 +102,7 @@ target_plot = Vector2( 2, 2 )
 
 [node name="TargetPositionHighlight" type="MeshInstance" parent="." index="0"]
 
-transform = Transform( 9.62725, 0, 0, 0, -4.37114e-08, 1, 0, -9.62725, -4.2082e-07, 0, 0.5, 0 )
+transform = Transform( 1, -7.78829e-07, -1.90127e-10, -1.90127e-10, -0.000488238, 1, -7.78829e-07, -1, -0.000488238, 0, 0.5, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -125,5 +127,14 @@ playback_speed = 1.0
 anims/blinking = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
+
+[node name="Area" parent="TargetPositionHighlight" index="1" instance=ExtResource( 7 )]
+
+transform = Transform( 0.999701, -0.0171452, 0.017449, 0.0171359, -0.0182398, -0.999687, 0.0174581, 0.999687, -0.0179405, 0, 0, 0 )
+script = null
+
+[connection signal="body_entered" from="TargetPositionHighlight/Area" to="." method="_on_Area_body_entered"]
+
+[connection signal="body_exited" from="TargetPositionHighlight/Area" to="." method="_on_Area_body_exited"]
 
 

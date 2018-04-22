@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/bubba/bubba.png" type="Texture" id=2]
 [ext_resource path="res://assets/bubba/bubba.obj" type="ArrayMesh" id=3]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.94
@@ -62,7 +62,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Roughness" ]
 
-[node name="Player" type="KinematicBody" index="0"]
+[node name="Player" type="KinematicBody"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420794, 0 )
 input_ray_pickable = true
@@ -80,12 +80,12 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 gravity = 10
 jump_force = 5
-moving_speed = 5
+moving_speed = 50.0
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.17045, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
