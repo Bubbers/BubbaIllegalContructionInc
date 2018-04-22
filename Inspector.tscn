@@ -18,7 +18,7 @@ rings = 8
 
 radius = 2.34663
 
-[node name="Inspector" type="KinematicBody" index="0"]
+[node name="Inspector" type="KinematicBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -44,7 +44,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="RotationHelper" type="Spatial" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+transform = Transform( 1, 0, 9.19296e-14, 9.19296e-14, 2.8213e-07, -1, 0, 1, 2.8213e-07, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="InspectorMesh" type="MeshInstance" parent="RotationHelper" index="0"]
@@ -68,8 +68,8 @@ _sections_unfolded = [ "Transform" ]
 
 enabled = true
 exclude_parent = true
-cast_to = Vector3( 10, 0, 0 )
-collision_mask = 1
+cast_to = Vector3( 10, 1, 0 )
+collision_mask = 1024
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="InspectionArea" type="Area" parent="RotationHelper" index="2"]
@@ -99,7 +99,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="InspectionAreaCollider" type="CollisionShape" parent="RotationHelper/InspectionArea" index="0"]
 
-transform = Transform( 2, -2.58626e-14, 3.28656e-20, 5.17251e-14, 1, -6.19098e-07, -1.68542e-20, 3.09549e-07, 2, 0, 0, 0 )
+transform = Transform( 2, -5.17251e-14, 3.28657e-20, 5.17251e-14, 2, -6.19098e-07, -1.68542e-20, 6.19098e-07, 2, 0, 0, 0 )
 shape = SubResource( 3 )
 disabled = false
 _sections_unfolded = [ "Transform" ]

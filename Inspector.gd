@@ -6,7 +6,6 @@ export (float) var gravity = 10
 
 var next_move_change = 0
 var move_vector = Vector3(0.0, 0.0, 0.0)
-var current_rotation_angle = 0
 
 var rotation_helper
 var sight_ray_caster
@@ -41,10 +40,10 @@ func _process(delta):
         if randi() % 2 == 0:
             move_vector += Vector3(0.0, 0.0, -1.0)
 
-        var angle = acos(Vector3(1.0, 0.0, 0.0).dot(move_vector.normalized()))
-
-        rotation_helper.rotate_y(current_rotation_angle - angle)
-        current_rotation_angle = angle
+        if move_vector.length() != 0:
+            var current_pos = rotation_helper.to_global(rotation_helper.get_translation())
+            var target = current_pos + move_vector.rotated(Vector3(0.0, 1.0, 0.0), PI / 2)
+            rotation_helper.look_at_from_position(current_pos, target, Vector3(0.0, 1.0, 0.0))
 
     move_and_slide(move_vector * MOVE_SPEED, Vector3(0.0, 1.0, 0.0))
 
@@ -59,7 +58,7 @@ func _process(delta):
 func point_raycaster_to_player():
     if seen_player_object != null:
         var player_position = seen_player_object.rotation_helper.to_global(seen_player_object.rotation_helper.get_translation())
-        sight_ray_caster.set_cast_to(rotation_helper.to_local(player_position))
+        sight_ray_caster.set_cast_to(rotation_helper.to_local(player_position) + Vector3(0.0, 1.0, 0.0))
 
 func _on_InspectionArea_body_entered(body):
     if body.is_in_group("player"):
@@ -69,4 +68,4 @@ func _on_InspectionArea_body_entered(body):
 func _on_InspectionArea_body_exited(body):
     if body.is_in_group("player"):
         seen_player_object = null
-        sight_ray_caster.set_cast_to(Vector3(10.0, 0.0, 0.0))
+        sight_ray_caster.set_cast_to(Vector3(10.0, 1.0, 0.0))
