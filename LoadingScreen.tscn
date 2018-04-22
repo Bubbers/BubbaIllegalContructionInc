@@ -31,4 +31,64 @@ exp_edit = false
 rounded = false
 percent_visible = true
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -366.0
+margin_top = -136.0
+margin_right = 366.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 103.442, 149.013 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "The world has turned in to a bureaucratic nightmare.
+It now is impossible to get a building permit in the central cities and the prices of building material is outrageous!
+
+To get around this you have decided to build anyway. As long as you do not get caught by the many inspectors whom patrol the city you will be OK. Furthermore, instead of purchasing building material, lets just steal it 
+from your neighbors.
+"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="PlayButton" type="Button" parent="." index="2"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -132.0
+margin_top = -20.0
+margin_right = 131.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Lets do this!"
+flat = false
+align = 1
+
+[connection signal="button_up" from="PlayButton" to="." method="_on_PlayButton_button_up"]
+
 

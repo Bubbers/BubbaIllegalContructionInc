@@ -4,6 +4,7 @@ var loader
 var wait_frames = 1
 var time_max = 10
 var current_scene
+var loaded_resource
 
 func _ready():
     var root = get_tree().get_root()
@@ -35,9 +36,9 @@ func _process(time):
         var err = loader.poll()
 
         if err == ERR_FILE_EOF: # load finished
-            var resource = loader.get_resource()
+            loaded_resource = loader.get_resource().instance()
             loader = null
-            set_new_scene(resource)
+            $PlayButton.disabled = false
             break
         elif err == OK:
             update_progress()
@@ -53,5 +54,11 @@ func update_progress():
 
 func set_new_scene(scene_resource):    
     current_scene.queue_free() # get rid of the old scene
-    current_scene = scene_resource.instance()
+    current_scene = scene_resource #.instance()
     get_node("/root").add_child(current_scene)
+
+func _on_PlayButton_button_up():
+    if loaded_resource == null:
+        return
+
+    set_new_scene(loaded_resource)
