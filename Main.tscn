@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://InspectorManager.gd" type="Script" id=2]
@@ -8,11 +8,16 @@
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ScoreHud.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node"]
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 77, 2.5, 0.25 )
+
+[node name="Main" type="Node" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90737, 0.420794, 1.47426 )
+moving_speed = 10.0
 
 [node name="InspectorManager" type="Node" parent="." index="1"]
 
@@ -60,6 +65,82 @@ _sections_unfolded = [ "Light", "Shadow" ]
 display = true
 
 [node name="ScoreHud" parent="." index="5" instance=ExtResource( 7 )]
+
+[node name="StaticBody" type="StaticBody" parent="." index="6"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2.5, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2" type="StaticBody" parent="." index="7"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2.5, 151 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody3" type="StaticBody" parent="." index="8"]
+
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2.5, 75 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody4" type="StaticBody" parent="." index="9"]
+
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 2.5, 75 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07269e-06, 0, 0 )
+shape = SubResource( 2 )
+disabled = false
 
 [connection signal="points_changed" from="Ground" to="ScoreHud" method="_on_score_changed"]
 
