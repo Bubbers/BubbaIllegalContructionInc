@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Inspector.gd" type="Script" id=1]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 
 radius = 0.306935
 height = 1.08276
@@ -14,11 +14,11 @@ mid_height = 1.0
 radial_segments = 64
 rings = 8
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="SphereShape" id=3]
 
 radius = 2.34663
 
-[node name="Inspector" type="KinematicBody"]
+[node name="Inspector" type="KinematicBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -38,7 +38,7 @@ gravity = 10
 [node name="InspectorMeshCollider" type="CollisionShape" parent="." index="0"]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.692466, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
@@ -100,7 +100,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="InspectionAreaCollider" type="CollisionShape" parent="RotationHelper/InspectionArea" index="0"]
 
 transform = Transform( 2, -2.58626e-14, 3.28656e-20, 5.17251e-14, 1, -6.19098e-07, -1.68542e-20, 3.09549e-07, 2, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
