@@ -41,15 +41,12 @@ func _process(time):
             $PlayButton.disabled = false
             break
         elif err == OK:
-            update_progress()
+            pass
         else: # error during loading
             show_error()
             loader = null
             break
             
-func update_progress():
-    var progress = float(loader.get_stage()) / loader.get_stage_count()
-    $ProgressBar.value = (progress)
 
 
 func set_new_scene(scene_resource):    
