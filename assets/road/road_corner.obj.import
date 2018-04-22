@@ -12,7 +12,7 @@ source_file="res://assets/road/road_corner.obj"
 source_md5="ba08b7f2c6d3d0fca00fecd2979e180a"
 
 dest_files=[ "res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh", "res://.import/road_corner.obj-f317444e94f8ae4c80b3b0d367c1b715.mesh" ]
-dest_md5="7a80e7a7cb2c5ff4e5bad7c4abd39ab4"
+dest_md5="3f674f8a76745f7cd69c33a2a4e31961"
 
 [params]
 

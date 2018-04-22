@@ -1,5 +1,6 @@
 extends Node
 
+export (PackedScene) var SceneToSwitchToWhenDetected
 export (PackedScene) var InspectorTemplate
 export (int) var num_inspectors = 5
 export (Vector2) var roads = Vector2(10, 10)
@@ -19,3 +20,4 @@ func _rand_int(minn, maxx):
     
 func detected():
     print("You got detected!")
+    get_tree().change_scene_to(SceneToSwitchToWhenDetected)
