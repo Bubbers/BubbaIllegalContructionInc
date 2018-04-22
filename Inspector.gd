@@ -39,11 +39,12 @@ func _process(delta):
             move_vector += Vector3(0.0, 0.0, 1.0)
         if randi() % 2 == 0:
             move_vector += Vector3(0.0, 0.0, -1.0)
+            
+        move_vector = move_vector.normalized()
 
         if move_vector.length() != 0:
-            var current_pos = rotation_helper.to_global(rotation_helper.get_translation())
-            var target = current_pos + move_vector.rotated(Vector3(0.0, 1.0, 0.0), PI / 2)
-            rotation_helper.look_at_from_position(current_pos, target, Vector3(0.0, 1.0, 0.0))
+            var angle = Vector2(0, 1).angle_to(Vector2(move_vector.x, move_vector.z))
+            rotation_helper.set_rotation(Vector3(PI / 2,-angle,0))
 
     move_and_slide(move_vector * MOVE_SPEED, Vector3(0.0, 1.0, 0.0))
 

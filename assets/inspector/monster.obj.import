@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/monster.obj-0c7907008be6f82f90630e0e376796a5.mesh"
+
+[deps]
+
+files=[ "res://.import/monster.obj-0c7907008be6f82f90630e0e376796a5.mesh" ]
+
+source_file="res://assets/inspector/monster.obj"
+source_md5="1a6d151c4a896554ddc6edbaea1d2d22"
+
+dest_files=[ "res://.import/monster.obj-0c7907008be6f82f90630e0e376796a5.mesh", "res://.import/monster.obj-0c7907008be6f82f90630e0e376796a5.mesh" ]
+dest_md5="73b9f90b8ad9470755d344b4ff11e9fc"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
