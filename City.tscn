@@ -7,7 +7,7 @@
 [ext_resource path="res://BrickFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WoodFloor.tscn" type="PackedScene" id=6]
 
-[node name="Spatial" type="Spatial" index="0"]
+[node name="Spatial" type="Spatial"]
 
 script = ExtResource( 1 )
 Corner = ExtResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Inspector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://City.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FPS counter.tscn" type="PackedScene" id=9]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -64,6 +65,10 @@ directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
+
+[node name="FPS counter" parent="." index="7" instance=ExtResource( 9 )]
+
+display = true
 
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
 
