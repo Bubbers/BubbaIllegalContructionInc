@@ -89,7 +89,7 @@ func handle_object_interaction():
         item_held_old_parent.add_child(item_held)
         get_parent().add_child(item_held_old_parent)
         item_held.set_scale(item_held.get_scale() * 10)
-        item_held.set_translation(Vector3(0, 2, 0))
+        item_held.set_translation(Vector3(0, 0, 0))
 
         var placementOffset = Vector3(0.0, 0.0, -1.0).rotated(Vector3(0.0, 1.0, 0.0), cam_yaw) * 10
 

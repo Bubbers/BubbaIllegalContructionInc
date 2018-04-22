@@ -5,8 +5,8 @@ export (PackedScene) var Straight
 export (PackedScene) var Plot
 
 func _ready():
-    var width = 3
-    var height = 2
+    var width = 4
+    var height = 4
     for x in range(10):
         for z in range(10):
             _neighborhood(Vector3(1.5 + (x * 3 * width), 0, 1.5 + (z * 3 * height)), width, height)

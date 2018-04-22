@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://WinCollision.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WinHUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Floor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://InspectorManager.gd" type="Script" id=6]
-[ext_resource path="res://Inspector.tscn" type="PackedScene" id=7]
-[ext_resource path="res://City.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://InspectorManager.gd" type="Script" id=5]
+[ext_resource path="res://Inspector.tscn" type="PackedScene" id=6]
+[ext_resource path="res://City.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://WoodFloor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BrickFloor.tscn" type="PackedScene" id=10]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -25,32 +26,52 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2304, 1.71915, 9.10777 )
 
 [node name="WinHUD" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="RigidBody" parent="." index="3" instance=ExtResource( 5 )]
+[node name="InspectorManager" type="Node" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
+script = ExtResource( 5 )
+InspectorTemplate = ExtResource( 6 )
 
-[node name="RigidBody2" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Ground" parent="." index="4" instance=ExtResource( 7 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 11.1394, -11.818 )
+[node name="PointsArea" parent="." index="5" instance=ExtResource( 8 )]
 
-[node name="RigidBody3" parent="." index="5" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4227, 0.207463, 17.1545 )
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 20.2568, -11.818 )
+[node name="WoodFloor" parent="." index="6" instance=ExtResource( 9 )]
 
-[node name="RigidBody4" parent="." index="6" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71725, 0, 8.83084 )
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78806, 16.0758, -11.818 )
+[node name="WoodFloor2" parent="." index="7" instance=ExtResource( 9 )]
 
-[node name="InspectorManager" type="Node" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71725, 14.7399, 8.83084 )
 
-script = ExtResource( 6 )
-InspectorTemplate = ExtResource( 7 )
+[node name="WoodFloor3" parent="." index="8" instance=ExtResource( 9 )]
 
-[node name="Spatial" parent="." index="8" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71725, 11.3771, 8.83084 )
 
-[node name="Area" parent="." index="9" instance=ExtResource( 9 )]
+[node name="WoodFloor4" parent="." index="9" instance=ExtResource( 9 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.28154, 0.207467, 9.16477 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71725, 7.6136, 8.83084 )
+
+[node name="WoodFloor5" parent="." index="10" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71725, 3.81041, 8.83084 )
+
+[node name="BrickFloor" parent="." index="11" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86316, 0, 33.7145 )
+
+[node name="BrickFloor2" parent="." index="12" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86316, 2.27851, 33.7145 )
+
+[node name="BrickFloor3" parent="." index="13" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86316, 4.64432, 33.7145 )
+
+[node name="BrickFloor4" parent="." index="14" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86316, 6.96942, 33.7145 )
 
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
 
