@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://City.gd" type="Script" id=1]
 [ext_resource path="res://RoadCorner.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Plot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BrickFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WoodFloor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=7]
 
 [sub_resource type="QuadMesh" id=1]
 
@@ -86,7 +87,7 @@ tracks/0/keys = {
 "values": [ Color( 0.148438, 1, 0, 0.629843 ), Color( 0.148438, 1, 0, 0.983451 ), Color( 0.148438, 1, 0, 0.627451 ) ]
 }
 
-[node name="Spatial" type="Spatial" index="0"]
+[node name="Spatial" type="Spatial"]
 
 script = ExtResource( 1 )
 Corner = ExtResource( 2 )
@@ -115,7 +116,11 @@ skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TargetPositionHighlight" index="0"]
+[node name="Area" parent="TargetPositionHighlight" index="0" instance=ExtResource( 7 )]
+
+transform = Transform( 0.103872, 0, 0, 0, -4.37113e-08, -0.103872, 0, 1, -4.54038e-09, 0, 1.2787e-08, -0.292533 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TargetPositionHighlight" index="1"]
 
 root_node = NodePath("..")
 autoplay = "blinking"

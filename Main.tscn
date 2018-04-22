@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,10 +7,9 @@
 [ext_resource path="res://InspectorManager.gd" type="Script" id=5]
 [ext_resource path="res://Inspector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://City.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ScoreArea.tscn" type="PackedScene" id=8]
-[ext_resource path="res://FPS counter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FPS counter.tscn" type="PackedScene" id=8]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -35,11 +34,7 @@ InspectorTemplate = ExtResource( 6 )
 transform = Transform( 1, -0.000282597, -0.000655334, 0.000283307, 0.999999, 0.00105877, 0.000655028, -0.00105896, 0.999999, 0, 0, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="PointsArea" parent="." index="5" instance=ExtResource( 8 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4227, 0.207463, 17.1545 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="6"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, -0.716355, 0.697736, 0, -0.697736, -0.716355, 0, 91.5446, -77.8801 )
 layers = 1
@@ -67,7 +62,7 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
 
-[node name="FPS counter" parent="." index="7" instance=ExtResource( 9 )]
+[node name="FPS counter" parent="." index="6" instance=ExtResource( 8 )]
 
 display = true
 
