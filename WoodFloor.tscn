@@ -104,10 +104,11 @@ linear_damp = -1.0
 angular_velocity = Vector3( 0, 0, 0 )
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
+transform = Transform( 0.751459, 0, 0, 0, 1, 0, 0, 0, 0.751459, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -124,7 +125,7 @@ _sections_unfolded = [ "material" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 0.714623, 0, 0, 0, 1, 0, 0, 0, 0.758726, 0, 1, 0 )
 shape = SubResource( 2 )
 disabled = false
 

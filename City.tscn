@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://City.gd" type="Script" id=1]
 [ext_resource path="res://RoadCorner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RoadStraight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Plot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BrickFloor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WoodFloor.tscn" type="PackedScene" id=6]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 Corner = ExtResource( 2 )
 Straight = ExtResource( 3 )
 Plot = ExtResource( 4 )
+brick_floor = ExtResource( 5 )
+wood_floor = ExtResource( 6 )
+min_building_stack_size = 2
+max_building_stack_size = 8
 
 

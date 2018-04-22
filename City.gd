@@ -3,6 +3,10 @@ extends Spatial
 export (PackedScene) var Corner
 export (PackedScene) var Straight
 export (PackedScene) var Plot
+export (PackedScene) var brick_floor
+export (PackedScene) var wood_floor
+export (int) var min_building_stack_size = 2
+export (int) var max_building_stack_size = 8
 
 func _ready():
     var width = 4
@@ -28,12 +32,28 @@ func _neighborhood(var origin, var width, var height):
     _place_straight(corners[3], width - 1, 2 * (PI /-2))
     _place_straight(corners[1], height - 1, 1 * (PI /-2))
     _place_straight(corners[2], height - 1, 3 * (PI /-2))
-
+    
+    _place_building(origin)
+    
     for x in range(width - 1):
         for z in range(height - 1):
             var newPlot = Plot.instance()
             newPlot.set_translation(origin + Vector3(x * 3, 0, z * 3) + Vector3(3, 0, 3))
             add_child(newPlot)
+            
+func _place_building(origin):
+    var block_rand = _rand_int(0, 7)
+    if block_rand < 6:
+        var block_type = wood_floor if block_rand < 3 else brick_floor
+        var stack_size = _rand_int(min_building_stack_size, max_building_stack_size)
+        
+        for h in range(stack_size):
+            var building_floor = block_type.instance()
+            building_floor.set_translation(origin + Vector3(6, 2*h, 6))
+            add_child(building_floor)
+            
+func _rand_int(minn, maxx):
+    return randi() % (maxx - minn) + minn            
             
 func _place_straight(origin, length, rotation):
     var newCorner = Corner.instance()
