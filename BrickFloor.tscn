@@ -76,7 +76,7 @@ _sections_unfolded = [ "shader_param" ]
 
 extents = Vector3( 3.98316, 1, 4.01495 )
 
-[node name="BrickFloor" type="RigidBody" index="0"]
+[node name="BrickFloor" type="RigidBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
