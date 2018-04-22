@@ -39,7 +39,6 @@ func _neighborhood(var origin, var width, var height, var plot_spot):
     
     if plot_spot == target_plot:
         $TargetPositionHighlight.set_translation(origin + Vector3(6, 0.25, 6))
-        print("wut")
     else:
         _place_building(origin)
     
