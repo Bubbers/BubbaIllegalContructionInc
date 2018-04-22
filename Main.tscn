@@ -19,7 +19,7 @@ script = ExtResource( 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90737, 0.420794, 1.47426 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6455, 0.420794, 35.9873 )
 moving_speed = 10.0
 
 [node name="InspectorManager" type="Node" parent="." index="1"]
