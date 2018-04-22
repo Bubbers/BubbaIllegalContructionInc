@@ -59,7 +59,7 @@ func _process(delta):
 func point_raycaster_to_player():
     if seen_player_object != null:
         var player_position = seen_player_object.rotation_helper.to_global(seen_player_object.rotation_helper.get_translation())
-        sight_ray_caster.set_cast_to(rotation_helper.to_local(player_position) + Vector3(0.0, 1.0, 0.0))
+        sight_ray_caster.set_cast_to(rotation_helper.to_local(player_position) + Vector3(0.0, 0.0, -1.0))
 
 func _on_InspectionArea_body_entered(body):
     if body.is_in_group("player"):

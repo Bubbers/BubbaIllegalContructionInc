@@ -8,9 +8,11 @@
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ScoreHud.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90737, 0.420794, 1.47426 )
 
 [node name="InspectorManager" type="Node" parent="." index="1"]
 

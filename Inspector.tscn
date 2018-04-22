@@ -6,8 +6,8 @@
 
 [sub_resource type="CapsuleShape" id=1]
 
-radius = 1.0
-height = 1.0
+radius = 0.589955
+height = 0.507474
 
 [sub_resource type="SphereShape" id=2]
 
@@ -66,7 +66,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Roughness" ]
 
-[node name="Inspector" type="KinematicBody"]
+[node name="Inspector" type="KinematicBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -85,9 +85,10 @@ gravity = 10
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, -0.0871558, 0.996195, 0, -0.996195, -0.0871558, 0, 1.53179, 0 )
+transform = Transform( 1, 0, 0, 0, -0.0871558, 0.996195, 0, -0.996195, -0.0871558, -0.138247, 0.821129, -0.102938 )
 shape = SubResource( 1 )
 disabled = false
+_sections_unfolded = [ "Transform" ]
 
 [node name="RotationHelper" type="Spatial" parent="." index="1"]
 
@@ -136,7 +137,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="InspectorMesh" type="MeshInstance" parent="RotationHelper" index="2"]
 
-transform = Transform( 1, 9.19296e-14, -2.59361e-20, -2.59361e-20, 2.8213e-07, 1, 9.19296e-14, -1, 2.8213e-07, -0.00611341, -0.24479, 0.0011621 )
+transform = Transform( 0.5, 4.59648e-14, -9.88678e-25, -1.58719e-17, 0.000172653, 0.5, 4.59648e-14, -0.5, 0.000172653, -0.00611341, -0.24479, 0.0011621 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -149,7 +150,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = SubResource( 3 )
-_sections_unfolded = [ "material" ]
+_sections_unfolded = [ "Transform", "material" ]
 
 [connection signal="body_entered" from="RotationHelper/InspectionArea" to="." method="_on_InspectionArea_body_entered"]
 
