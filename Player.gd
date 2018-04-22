@@ -2,7 +2,7 @@ extends KinematicBody
 
 export (float) var gravity = 10
 export (float) var jump_force = 5
-export (float) var moving_speed = 12
+export (float) var moving_speed = 5
 
 const MOUSE_SENSITIVITY = 0.005
 
@@ -18,7 +18,7 @@ var item_held = null
 
 var cam_pitch = 0.0;
 var cam_yaw = 0.0;
-var cam_currentradius = 8.0;
+var cam_currentradius = 3.0;
 
 func _ready():
     rotation_helper = $RotationHelper
@@ -123,7 +123,7 @@ func _input(event):
         cam_pitch += relative.y * MOUSE_SENSITIVITY
         cam_pitch = clamp(cam_pitch, - PI/8, PI / 2.1)
 
-        var head_pos = Vector3(0, 3.6, 0) + get_global_transform().origin
+        var head_pos = Vector3(0, 1, 0) + get_global_transform().origin
         var cam_pos = head_pos
         cam_pos.x += cam_currentradius * sin(cam_yaw) * cos(cam_pitch)
         cam_pos.y += cam_currentradius * sin(cam_pitch)

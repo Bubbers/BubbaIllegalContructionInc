@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bubba.obj-9a07febb443fa6dde6e415bc6f5a32ca.mesh"
+
+[deps]
+
+files=[ "res://.import/bubba.obj-9a07febb443fa6dde6e415bc6f5a32ca.mesh" ]
+
+source_file="res://assets/bubba/bubba.obj"
+source_md5="a0183869ad0ca985370baf219d404cd8"
+
+dest_files=[ "res://.import/bubba.obj-9a07febb443fa6dde6e415bc6f5a32ca.mesh", "res://.import/bubba.obj-9a07febb443fa6dde6e415bc6f5a32ca.mesh" ]
+dest_md5="73b9f90b8ad9470755d344b4ff11e9fc"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
