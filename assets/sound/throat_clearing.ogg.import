@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/throat_clearing.ogg-8bf8964aeabb7cf1abcaa0acace61105.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/throat_clearing.ogg"
+source_md5="1d3e231946df47e4d631b9c2aec696e4"
+
+dest_files=[ "res://.import/throat_clearing.ogg-8bf8964aeabb7cf1abcaa0acace61105.oggstr" ]
+dest_md5="2c3acf60a6ea3ac04c8a5da7146aa390"
+
+[params]
+
+loop=true
+loop_offset=0

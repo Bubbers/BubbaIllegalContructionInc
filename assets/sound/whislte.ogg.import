@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/whislte.ogg-031c642c6ba03f6a0d42eb3a6f82a133.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/whislte.ogg"
+source_md5="ce89defefe11062ced4206a893d721db"
+
+dest_files=[ "res://.import/whislte.ogg-031c642c6ba03f6a0d42eb3a6f82a133.oggstr" ]
+dest_md5="96421d8ef332b07b45a92e96266f0fde"
+
+[params]
+
+loop=true
+loop_offset=0

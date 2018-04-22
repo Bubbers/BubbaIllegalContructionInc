@@ -1,0 +1,9 @@
+extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+
+func _ready():
+    global.unlock_points()
+    global.set_points(0)

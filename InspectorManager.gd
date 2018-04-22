@@ -20,4 +20,5 @@ func _rand_int(minn, maxx):
     
 func detected():
     print("You got detected!")
+    global.lock_points()
     get_tree().change_scene_to(SceneToSwitchToWhenDetected)
