@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Inspector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://City.tscn" type="PackedScene" id=7]
 [ext_resource path="res://FPS counter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ScoreHud.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node" index="0"]
 
@@ -32,7 +33,7 @@ InspectorTemplate = ExtResource( 6 )
 [node name="Ground" parent="." index="4" instance=ExtResource( 7 )]
 
 transform = Transform( 1, -0.000282597, -0.000655334, 0.000283307, 0.999999, 0.00105877, 0.000655028, -0.00105896, 0.999999, 0, 0, 0 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Pause", "Transform", "Visibility" ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
 
@@ -66,6 +67,10 @@ _sections_unfolded = [ "Shadow" ]
 
 display = true
 
+[node name="ScoreHud" parent="." index="7" instance=ExtResource( 9 )]
+
 [connection signal="win" from="WinCollision" to="." method="_on_WinCollision_win"]
+
+[connection signal="points_changed" from="Ground" to="ScoreHud" method="_on_score_changed"]
 
 

@@ -9,6 +9,10 @@ export (int) var min_building_stack_size = 2
 export (int) var max_building_stack_size = 8
 export (Vector2) var target_plot = Vector2(2, 2)
 
+signal points_changed
+
+var points
+
 func _ready():
     var width = 4
     var height = 4
@@ -17,6 +21,19 @@ func _ready():
     for x in range(10):
         for z in range(10):
             _neighborhood(Vector3(x * block_width * width, 0, z * block_height * height), width, height, Vector2(x, z))
+    points = 0
+
+func _on_Area_body_entered(body):
+    points += 1
+    emit_signal("points_changed", points)
+    print("points are ", points)
+
+
+func _on_Area_body_exited(body):
+    points -= 1
+    emit_signal("points_changed", points)
+    print("points are ", points)
+
 
 
 #

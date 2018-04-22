@@ -87,9 +87,10 @@ tracks/0/keys = {
 "values": [ Color( 0.148438, 1, 0, 0.629843 ), Color( 0.148438, 1, 0, 0.983451 ), Color( 0.148438, 1, 0, 0.627451 ) ]
 }
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 Corner = ExtResource( 2 )
 Straight = ExtResource( 3 )
 Plot = ExtResource( 4 )
@@ -119,6 +120,7 @@ _sections_unfolded = [ "Geometry", "Transform", "material" ]
 [node name="Area" parent="TargetPositionHighlight" index="0" instance=ExtResource( 7 )]
 
 transform = Transform( 0.103872, 0, 0, 0, -4.37113e-08, -0.103872, 0, 1, -4.54038e-09, 0, 1.2787e-08, -0.292533 )
+script = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TargetPositionHighlight" index="1"]
 
@@ -130,5 +132,9 @@ playback_speed = 1.0
 anims/blinking = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
+
+[connection signal="body_entered" from="TargetPositionHighlight/Area" to="." method="_on_Area_body_entered"]
+
+[connection signal="body_exited" from="TargetPositionHighlight/Area" to="." method="_on_Area_body_exited"]
 
 
