@@ -26,6 +26,7 @@ func _ready():
 #
 func _neighborhood(var origin, var width, var height):
     var corners = [Vector3(), Vector3(), Vector3(), Vector3()]
+    var mid_of_neighborhood = origin + Vector3(3 * (width / 2.0) , 0, 3 * (height / 2.0))
     
     for index in range(4):
         corners[index] = origin + Vector3(fmod(index, 2) * 3 * width, 0, (index / 2) * 3 * height)
@@ -37,11 +38,10 @@ func _neighborhood(var origin, var width, var height):
     
     _place_building(origin)
     
-    for x in range(width - 1):
-        for z in range(height - 1):
-            var newPlot = Plot.instance()
-            newPlot.set_translation(origin + Vector3(x * 3, 0, z * 3) + Vector3(3, 0, 3))
-            add_child(newPlot)
+    var newPlot = Plot.instance()
+    newPlot.set_translation(mid_of_neighborhood)
+    newPlot.set_scale(Vector3(width * ( 1.0 - 1.0 / width ), 1.0, height * ( 1.0 - 1.0 / height )))
+    add_child(newPlot)
             
 func _place_building(origin):
     var block_rand = _rand_int(0, 7)
