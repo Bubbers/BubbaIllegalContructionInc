@@ -11,9 +11,11 @@ export (int) var max_building_stack_size = 8
 func _ready():
     var width = 4
     var height = 4
+    var block_width = 3 * (1.0 + 1.0/width)
+    var block_height = 3 * (1.0 + 1.0/height)
     for x in range(10):
         for z in range(10):
-            _neighborhood(Vector3(1.5 + (x * 3 * width), 0, 1.5 + (z * 3 * height)), width, height)
+            _neighborhood(Vector3(x * block_width * width, 0, z * block_height * height), width, height)
 
 
 #
